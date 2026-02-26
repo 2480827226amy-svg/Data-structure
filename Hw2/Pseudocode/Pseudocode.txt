@@ -1,0 +1,130 @@
+---------- Function: getScore() ----------
+* Function: getScore()
+* Input: int studentID, int[] grades
+* Output: int student_score
+* Description: 
+function getScore(int studentID, int[] grades)
+    return grades[studentID]
+------------------------------------------
+
+---------- Function: getRank() ----------
+* Function: getRank()
+* Input: int studentID, int[] grades
+* Output: int student_rank
+* Description: 
+function getRank(int studentID, int[] grades)
+    int student_rank = 1;
+    int student_score = getScore;
+    for (int i=0; i < grades.length; i++){
+        if (student_score < grades[i]){
+            student_rank = student_rank + 1;
+        }
+    }
+    return student_rank;
+-------------------------------------------
+
+---------- Function: perfectScoreQ() ----------
+* Function: perfectScoreQ()
+* Input: int[] grades
+* Output: boolean ifPerfect
+* Description: 
+function perfectScoreQ(int[] grades)
+    for (int i=0; i < grades.length; i++){
+        if (grades[i] == 100){
+            return true;
+            break;
+        }
+    }
+    return false;
+------------------------------------------------
+
+---------- Function: bottomScoreQ() ----------
+* Function: bottomScoreQ()
+* Input: int[] grades
+* Output: boolean ifBottom
+* Description: 
+function bottomScoreQ(int[] grades)
+    for (int i=0; i < grades.length; i++){
+        if (grades[i] == 0){
+            return true;
+            break;
+        }
+    }
+    return false;
+------------------------------------------------
+
+---------- Function: getMaxScore() ----------
+* Function: getMaxScore()
+* Input: int[] grades
+* Output: int best_score
+* Description: 
+function getMaxScore(int[] grades)
+    int best_score = findMax(grades);
+    return best_score;
+------------------------------------------------
+
+---------- Function: nrMaxScores() ----------
+* Function: nrMaxScores()
+* Input: int[] grades
+* Output: int count
+* Description: 
+function nrMaxScores(int[] grades)
+    int count = 0;
+    int best_score = findMax(grades);
+    for (int i=0; i < grades.length; i++){
+        if (grades[i] == best_score){
+            count = count + 1;
+        }
+    }
+    return count
+------------------------------------------------
+
+---------- Function: getMinScore() ----------
+* Function: getMinScore()
+* Input: int[] grades
+* Output: int min_score
+* Description: 
+function getMinScore(int[] grades)
+    int min_score = findMin(grades);
+    return min_score;
+------------------------------------------------
+
+---------- Function: nrMinScores() ----------
+* Function: nrMinScores()
+* Input: int[] grades
+* Output: int count
+* Description: 
+function nrMinScores(int[] grades)
+    int count = 0;
+    int min_score = findmin(grades);
+    for (int i=0; i < grades.length; i++){
+        if (grades[i] == min_score){
+            count = count + 1;
+        }
+    }
+    return count
+------------------------------------------------
+
+---------- Function: sortedScores() ----------
+* Function: sortedScores()
+* Input: int[] grades
+* Output: int[] sorted grades
+* Description: 
+function sortedScores(int[] grades)
+    int max = getMaxScore(grades)
+    int[] sorting = new int[max+1]
+    for (int i=0; i < grades.length; i++){
+        int score = grades[i];
+        sorting[score] = sorting[score] + 1;
+    }
+
+    int index = 0;
+    for (int i=0; i < sorting.length; i++) {
+        while (sorting[i] > 0) {
+            grades[index] = i;
+            index = index + 1;
+            sorting[i] = sorting[i] - 1;
+        }
+    }
+    return grades
+------------------------------------------------

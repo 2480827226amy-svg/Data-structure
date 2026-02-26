@@ -1,0 +1,211 @@
+= copyRec()
+= Input: input array A with length n
+= Output: a new copied array B
+= Description: 
+    if n == 1
+        B[0] = A [0]
+    else
+        copyRec(A, n-1, B)
+        B[n-1] = A[n-1]
+==========================================================
+
+= addAllRec()
+= Input: input array A with length n
+= Output: int sum
+= Description: 
+    if n == 1
+        return sum = A[1]
+    else
+        sum = addAllRec(A[0, ..., n-2]) + A[n-1]
+        return sum
+==========================================================
+
+= addArraysRec()
+= Input: input array A and input array B with length n
+= Output: a new integer array added
+= Description: 
+    if n == 1
+        added[0] = A[0] + B[0]
+    else
+        addedArraysRec(A, B, n-1, added)
+        added[n-1] = A[n-1] + B[n-1]
+==========================================================
+
+= multiplyAllRec()
+= Input: input array A with length n
+= Output: int product
+= Description: 
+    if n == 1
+        return product = A[1]
+    else
+        product = productAllRec(A[0, ..., n-2]) * A[n-1]
+        return product
+==========================================================
+
+= isElementRec()
+= Input: input array A with length n, integer target
+= Output: boolean, true if target in the array, otherwise false
+= Description:
+    if n = 0
+        return false
+    else if A[n-1] == a
+        return true
+    else
+        return isElementRec(A, target, n-1) 
+==========================================================
+
+= indexOfRec()
+= Input: input array A with length n, integer target
+= Output: int, index of the target in the array
+= Description:
+    if n = 0
+        return -1
+    else if A[n-1] == a
+        return n-1
+    else
+        return indexOfRec(A, target, n-1) 
+==========================================================
+
+= findMinRec()
+= Input: input array A with length n
+= Output: int min
+= Description: 
+    if n == 1
+        return A[1]
+    min = findMinRec(A[0, ..., n-2])
+    if min > A[n-1]
+        return A[n-1]
+    return min
+==========================================================
+
+= findMaxRec()
+= Input: input array A with length n
+= Output: int max
+= Description: 
+    if n == 1
+        return A[1]
+    max = findMaxRec(A[0, ..., n-2])
+    if max < A[n-1]
+        return A[n-1]
+    return max
+==========================================================
+
+= reverseRec()
+= Input: input array A with length n, index from left, index from right
+= Output: none
+= Description: 
+    if left >= right
+        return
+    else
+        swap(left, right)
+        reverse(A, left + 1, right -1)
+==========================================================
+
+= returnReverseRec()
+= Input: input array A with length n
+= Output: none
+= Description: 
+    if n=1
+        B[0] = A[n-1]
+    else
+        reverseRec(A, n-1)
+        A[n-1] = A[A.length - n]
+= Wrapper:
+    returnReverseRec(int[] A)
+        B = new int[A.length]
+        returnReverseRec(A, n , B)
+        return B
+==========================================================
+
+= intersectionRec()
+= Input: input array A with length n, input array B with length n, temporary array temp
+= Output: a new array of intersection
+= Description: 
+    Function #1: intersectionRec(A, B, temp, n) - (returns the count of intersected element)
+        if n=0
+            return 0
+        else
+            count = intersectionRec(A, B, temp, n-1)
+            current = A[n-1]
+            inB = isElementRec(B, target = current, B.length)
+            inTemp = isElement(temp, target = current, count)
+
+            if inB and not inTemp
+                temp[count] = current
+                return count + 1
+            else
+                return count
+
+    Function #2: cleanArray(A, size, result)
+        if size = 0
+            return
+        else
+            cleanArray(A, size-1, result)
+            result[size-1] = A[size-1]
+
+= Wrapper:
+    intersectionRec(int[] A, int[] B)
+        temp = new int[n]
+        size = intersectionRec(A, B, temp, n)
+
+        result = new int[size]
+        Function#2
+        return result
+==========================================================
+
+= unionRec()
+= Input: input array A with length n, input array B with length n, temporary array temp
+= Output: a new array of union
+= Description: 
+    unionRec(A, temp, n, start)
+        if n=0
+            return start
+        else
+            count = unionRec(A, temp, n-1)
+            current = A[n-1]
+            inTemp = isElement(temp, target = current, count)
+            if not inTemp
+                temp[count] = current
+                return count + 1
+            else
+                return count
+
+= Wrapper:
+    unionRec(int[] A, int[] B)
+        temp = new int[nA+nB]
+        size = unionRec(A, temp, nA, 0)
+        size = unionRec(B, temp, nB, size)
+        result = new int[size]
+        Function#2 in intersection
+        return result
+==========================================================
+
+= sortRec()
+= Input: input array A with length n
+= Output: a new sorted array 
+= Description: 
+    if n = 0
+        return
+    else
+        int minidx = findMinIndexRec_partial(A, index, limit)
+        sorted[A.length - 1] = A[minidx]
+        swap(minidx, n-1)
+        sort(A, n-1, sorted)
+
+    Function findMinIndexRec_partial(A, index, limit)
+        if index = limit -1
+            return index
+        else
+            int min = findMinIndexRec_partial(..., index + 1, ...)
+            if A[index] < A[min]
+                return index
+            else
+                return min
+
+= Wrapper:
+    sortRec(array A)
+        sorted = new int[n]
+        copy = copyRec(A)
+        sort(A, n, sorted)
+        return sorted
+==========================================================

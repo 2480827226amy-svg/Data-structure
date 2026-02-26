@@ -1,0 +1,99 @@
+1. ===== Testing: copy =====
+Input array:  40 10 48 36 74 68 7 7 76 13
+Copied array:  40 10 48 36 74 68 7 7 76 13
+1. ===== Done: copy =====
+
+
+2. ===== Testing: addAll =====
+Input array:  40 10 48 36 74 68 7 7 76 13
+Total: 379
+2. ===== Done: addAll =====
+
+
+3. ===== Testing: addArrays =====
+Input arrays:  40 10 48 36 74 68 7 7 76 13 and 78 89 63 44 74 75 67 48 51 29
+Total:  118 99 111 80 148 143 74 55 127 42
+3. ===== Done: addArrays =====
+
+
+4. ===== Testing: multiplyAll =====
+Input array:  40 10 48 36 74 68 7 7 76 13
+Product: -1524858880
+4. ===== Done: multiplyAll =====
+
+
+5. ===== Testing: findAverage =====
+Input array:  40 10 48 36 74 68 7 7 76 13
+Average: 37
+5. ===== Done: findAverage =====
+
+
+6. ===== Testing: swap =====
+Input array:  40 10 48 36 74 68 7 7 76 13
+Indices to swap: 1 and 3
+Swapped array:  40 36 48 10 74 68 7 7 76 13
+6. ===== Done: swap =====
+
+
+7. ===== Testing: isElement =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Value: 40
+Result from isElement: true
+7. ===== Done: isElement =====
+
+
+8. ===== Testing: indexOf =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Value: 48
+Index of element: 2
+8. ===== Done: indexOf =====
+
+
+9. ===== Testing: findMin =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Minimum value: 7
+9. ===== Done: findMin =====
+
+
+10. ===== Testing: findMinIndex =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Index of minimum: 7
+10. ===== Done: findMinIndex =====
+
+
+11. ===== Testing: findMax =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Maximum value: 76
+11. ===== Done: findMax =====
+
+
+12. ===== Testing: findMaxIndex =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Index of maximum: 8
+12. ===== Done: findMaxIndex =====
+
+
+13. ===== Testing: reverse =====
+Input array:  40 36 48 10 74 68 7 7 76 13
+Array after reversal:  13 76 7 7 68 74 10 48 36 40
+13. ===== Done: reverse =====
+
+
+14. ===== Testing: returnReverse =====
+Input array:  13 76 7 7 68 74 10 48 36 40
+New reversed array:  40 36 48 10 74 68 7 7 76 13
+14. ===== Done: returnReverse =====
+
+
+15. ===== Testing: intersection =====
+First input array:  13 76 7 7 68 74 10 48 36 40
+Second input array:  78 89 63 44 74 75 67 48 51 29
+Intersections:  74 48
+15. ===== Done: intersection =====
+
+
+16. ===== Testing: union =====
+First input array:  13 76 7 7 68 74 10 48 36 40
+Second input array:  78 89 63 44 74 75 67 48 51 29
+Union array:  13 76 7 68 74 10 48 36 40 78 89 63 44 75 67 51 29
+16. ===== Done: union =====

@@ -1,0 +1,141 @@
+-----------------------------------------------------------------------------------
+Part 1: Pseudocode for CharStack
+-----------------------------------------------------------------------------------
+
+========================================
+= constructor
+= input: size of stack n
+= output: a newly constructed empty stack with size n
+= description:
+    n = max_size
+    top = -1
+    A = new char[n]
+========================================
+
+========================================
+= isEmpty
+= input: none, uses private variable top
+= output: boolean, true if the stack is empty, otherwise false
+= description:
+    return top == -1
+========================================
+
+========================================
+= isFull
+= input: none, uses private variable top and size of stack n
+= output: boolean, true if the stack is full, otherwise false
+= description:
+    return top == n-1
+========================================
+
+========================================
+= peek
+= input: none, uses private variable top and private stack A
+= output: char peek (the last element in the stack)
+= description:
+    if isEmpty
+        throw new exception ("Stack is empty")
+    else
+        return stack[top]
+========================================
+
+========================================
+= push
+= input: char new
+= output: none (adds one new element to the top of the stack)
+= description:
+    if isFull
+        throw new exception ("stack is already full")
+    else
+        top = top + 1
+        stack[top] = new
+========================================
+
+========================================
+= pop
+= input: none, uses private variable top and stack A
+= output: delete, charater that's been removed 
+= description:
+    if isEmpty
+        throw new exception ("the stack is empty, cannot pop")
+    else
+        delete = A[top]
+        top = top - 1
+        return delete
+========================================
+
+========================================
+= toString
+= input: none, access the private variable top and stack A
+= output: string output_string (converts the stack to string)
+= description:
+    if isEmpty
+        return "stack is empty"
+    else
+        from (i = 0 to top+1){
+            output_string += " " + A[i]
+        }
+        return output_string
+========================================
+
+-----------------------------------------------------------------------------------
+Part 2: Pseudocode for matchingParentheses Algorithm
+-----------------------------------------------------------------------------------
+
+========================================
+========== iterative version ===========
+= matchingParenthesis()
+= input: array A with length n
+= output: boolean true if parenthesis are all matched, otherwise false
+= description:
+    create empty stack S
+    for i = 0 to n-1:
+        if A[i] is '(' or '[' or '{':
+            S.push(A[i])
+        else if A[i] is ')' or ']' or '}':
+            if S is empty:
+                return false
+            else if S.top == of A[i]:
+                S.pop()
+            else
+                return false
+
+
+    if S is empty:
+        return true
+    else:
+        return false
+========================================
+
+========================================
+========== recursive version ===========
+= matchingParenthesis() #wrapper
+= input: array A with length n
+= output: boolean true if parenthesis are all matched, otherwise false
+= description:
+    S = new char[n+1] # an initialized stack
+    n = inputChar.length
+    if matchingParenthesesRec(S, A, n) == false
+        return false
+    return stack.isEmpty()
+-----------------------------------------
+= matchingParenthesisRec()
+= input: array A with length n, stack S
+= output: boolean, true if so far has no unopened or mismatched, otherwise false
+= description:
+    if n == 0
+        return true
+    else
+        if matchingParenthesisRec(S, A, n-1) == false
+            return false
+        if A[n-1] is '(' or '[' or '{':
+            S.push(A[i])
+        else if A[n-1] is ')' or ']' or '}':
+            if S is empty:
+                return false
+            else if S.top == of A[n-1]:
+                S.pop()
+            else
+                return false
+        return true
+========================================
